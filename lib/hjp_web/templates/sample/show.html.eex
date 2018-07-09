@@ -1,0 +1,43 @@
+<h2>Show Sample</h2>
+
+<ul>
+
+  <li>
+    <strong>Brand:</strong>
+    <%= @sample.brand %>
+  </li>
+
+  <li>
+    <strong>Style:</strong>
+    <%= @sample.style %>
+  </li>
+
+  <li>
+    <strong>Size:</strong>
+    <%= @sample.size %>
+  </li>
+
+  <li>
+    <strong>Inseam:</strong>
+    <%= @sample.inseam %>
+  </li>
+
+  <li>
+    <strong>Waist:</strong>
+    <%= @sample.waist %>
+  </li>
+
+  <li>
+    <strong>Pocket depth:</strong>
+    <%= @sample.pocket_depth %>
+  </li>
+
+  <li>
+    <strong>Rise:</strong>
+    <%= @sample.rise %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: sample_path(@conn, :edit, @sample) %></span>
+<span><%= link "Back", to: sample_path(@conn, :index) %></span>

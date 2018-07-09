@@ -1,0 +1,38 @@
+<h2>Listing Samples</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Brand</th>
+      <th>Style</th>
+      <th>Size</th>
+      <th>Inseam</th>
+      <th>Waist</th>
+      <th>Pocket depth</th>
+      <th>Rise</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for sample <- @samples do %>
+    <tr>
+      <td><%= sample.brand %></td>
+      <td><%= sample.style %></td>
+      <td><%= sample.size %></td>
+      <td><%= sample.inseam %></td>
+      <td><%= sample.waist %></td>
+      <td><%= sample.pocket_depth %></td>
+      <td><%= sample.rise %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: sample_path(@conn, :show, sample), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: sample_path(@conn, :edit, sample), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: sample_path(@conn, :delete, sample), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Sample", to: sample_path(@conn, :new) %></span>
