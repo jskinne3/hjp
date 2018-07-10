@@ -7,8 +7,10 @@ defmodule HjpWeb.SampleController do
 
   def index(conn, params) do
     waist_min = get_in(params, ["search", "waist_min"])
+    waist_max = get_in(params, ["search", "waist_max"])
     samples = Sample
       |> Sample.waist_min(waist_min)
+      |> Sample.waist_max(waist_max)
       |> Repo.all()
     #samples = Pants.list_samples()
     render(conn, "index.html", samples: samples)

@@ -31,4 +31,12 @@ defmodule Hjp.Pants.Sample do
     where: sample.waist >= ^waist_min
   end
 
+  def waist_max(query, waist_max) when is_nil(waist_max) or byte_size(waist_max) == 0 do
+    query
+  end
+  def waist_max(query, waist_max) do
+    from sample in query,
+    where: sample.waist <= ^waist_max
+  end
+
 end

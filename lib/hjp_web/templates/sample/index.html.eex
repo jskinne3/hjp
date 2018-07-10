@@ -1,12 +1,15 @@
-<h2>Listing Samples</h2>
-
 <div>
   <%= form_for @conn, sample_path(@conn, :index), [method: :get, as: :search], fn f -> %>
-    <%= label(f, :waist_min, "Waist min") %>
-    <%= number_input(f, :waist_min, prompt: "inches") %>
+    <%= label(f, :waist_min, "Waist inches between") %>
+    <%= number_input(f, :waist_min, [placeholder: "min"]) %>
+    <%= label(f, :waist_max, "and") %>
+    <%= number_input(f, :waist_max, [placeholder: "max"]) %>
+    <br />
     <%= submit "Filter" %>
   <% end %>
 </div>
+
+<h2>Listing Samples</h2>
 
 <table class="table">
   <thead>
