@@ -3,9 +3,14 @@ defmodule HjpWeb.SampleController do
 
   alias Hjp.Pants
   alias Hjp.Pants.Sample
+  alias Hjp.Repo
 
-  def index(conn, _params) do
-    samples = Pants.list_samples()
+  def index(conn, params) do
+    waist_min = get_in(params, ["search", "waist_min"])
+    samples = Sample
+      |> Sample.waist_min(waist_min)
+      |> Repo.all()
+    #samples = Pants.list_samples()
     render(conn, "index.html", samples: samples)
   end
 
