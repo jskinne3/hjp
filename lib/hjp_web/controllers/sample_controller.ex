@@ -16,6 +16,17 @@ defmodule HjpWeb.SampleController do
     render(conn, "index.html", samples: samples)
   end
 
+  def search(conn, params) do
+    waist_min = get_in(params, ["search", "waist_min"])
+    waist_max = get_in(params, ["search", "waist_max"])
+    samples = Sample
+      |> Sample.waist_min(waist_min)
+      |> Sample.waist_max(waist_max)
+      |> Repo.all()
+    #samples = Pants.list_samples()
+    render(conn, "search.html", samples: samples)
+  end
+
   def new(conn, _params) do
     changeset = Pants.change_sample(%Sample{})
     render(conn, "new.html", changeset: changeset)

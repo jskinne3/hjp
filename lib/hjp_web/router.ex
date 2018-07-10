@@ -16,7 +16,8 @@ defmodule HjpWeb.Router do
   scope "/", HjpWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    #get "/", PageController, :index
+    get "/", SampleController, :search
 
     resources "/posts", PostController
     resources "/samples", SampleController
